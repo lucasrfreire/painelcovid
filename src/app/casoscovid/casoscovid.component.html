@@ -6,7 +6,7 @@
 </thead>
 <tbody>
     <tr *ngFor="let casocovid of casoscovid">
-        <td>{{casocovid.uf}}</td>
+        <td>{{casocovid.state}}</td>
         <td>{{casocovid.cases}}</td>
         <td><button class="btn btn-info" data-toggle="modal" data-target="#detalharcasos" (click)="onSelect(casocovid)">
             Detalhes

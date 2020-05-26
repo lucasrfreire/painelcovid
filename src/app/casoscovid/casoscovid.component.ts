@@ -19,7 +19,7 @@ export class CasoscovidComponent implements OnInit{
     }
 
     public ngOnInit(){
-        this.casoscovidService.getCasoscovid()
+        this.casoscovidService.getAll()
         .subscribe(
             casoscovid => this.casoscovid = casoscovid,
             error => alert("Ocorreu um erro no servidor, tente novamente mais tarde")

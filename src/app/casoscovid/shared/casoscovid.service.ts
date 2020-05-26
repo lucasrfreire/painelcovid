@@ -1,11 +1,16 @@
-import { Http } from "@angular/http";
+import { Http, Response } from "@angular/http";
 
 import { Injectable } from "@angular/core";
 
-import "rxjs/add/operator/map";
-import { Casoscovid } from "./casoscovid.model";
 import { Observable } from "rxjs/Observable";
 
+
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/catch";
+
+import { Casoscovid } from "./casoscovid.model";
+
+/*
 const CASOS: Array<Casoscovid> = [
     { uf: 'DF', cases: 80},
     { uf: 'GO', cases: 2},
@@ -13,17 +18,24 @@ const CASOS: Array<Casoscovid> = [
     { uf: 'MT', cases: 38},
     { uf: 'PA', cases: 19}
 ];
-
+*/
 @Injectable()
 
 export class CasocovidService {
-    public casoscovidUrl = 'api/teste';
+    public casoscovidUrl = 'https://covid19-brazil-api.now.sh/api/report/v1';
 
     public constructor(private http: Http){
 
     }
-    public getCasoscovid(): Observable<Casoscovid[]>{
+    public getAll(): Observable<Casoscovid[]>{
         return this.http.get(this.casoscovidUrl)
+        .map((response: Response) => response.json().data as Casoscovid[])
+    }
+/*
+    public getCasosPorEstado(uf: string): Observable<Casoscovid>{
+        let url = `${this.casoscovidUrl}/${uf}`;
+        return this.http.get(url)
         .map((response: Response) => response.json().data as Casoscovid)
     }
+    */
 }
