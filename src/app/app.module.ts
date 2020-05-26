@@ -5,23 +5,34 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from "./navbar/navbar.component";
-import { CasoscovidComponent } from "./casoscovid/casoscovid.component";
 import { CasocovidDetalhesComponent } from "./casoscovid/casocovid-detalhes/casocovid-datalhes.component";
+import { CasoscovidComponent } from "./casoscovid/casoscovid.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { NavbarComponent } from "./navbar/navbar.component";
 
 const ROUTES = RouterModule.forRoot([
   {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
     path: 'casoscovid',
     component: CasoscovidComponent
+  },
+  {
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
   }
 ])
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     CasoscovidComponent,
-    CasocovidDetalhesComponent
+    CasocovidDetalhesComponent,
+    DashboardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
