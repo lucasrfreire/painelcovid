@@ -31,11 +31,11 @@ export class CasocovidService {
         return this.http.get(this.casoscovidUrl)
         .map((response: Response) => response.json().data as Casoscovid[])
     }
-/*
+
     public getCasosPorEstado(uf: string): Observable<Casoscovid>{
-        let url = `${this.casoscovidUrl}/${uf}`;
-        return this.http.get(url)
+        let url = `${this.casoscovidUrl}/brazil/uf/${uf}`;
+        return this.http.get(this)
         .map((response: Response) => response.json().data as Casoscovid)
     }
-    */
+    
 }

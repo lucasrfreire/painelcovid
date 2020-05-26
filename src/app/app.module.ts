@@ -13,6 +13,10 @@ import { CasocovidService } from "./casoscovid/shared/casoscovid.service";
 
 const ROUTES = RouterModule.forRoot([
   {
+    path: 'casoscovid/:uf',
+    component: CasocovidDetalhesComponent
+  }
+  {
     path: 'dashboard',
     component: DashboardComponent
   },
