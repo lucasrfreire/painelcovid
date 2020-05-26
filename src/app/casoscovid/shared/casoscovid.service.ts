@@ -1,6 +1,10 @@
+import { Http } from "@angular/http";
+
 import { Injectable } from "@angular/core";
 
+import "rxjs/add/operator/map";
 import { Casoscovid } from "./casoscovid.model";
+import { Observable } from "rxjs/Observable";
 
 const CASOS: Array<Casoscovid> = [
     { uf: 'DF', cases: 80},
@@ -13,16 +17,13 @@ const CASOS: Array<Casoscovid> = [
 @Injectable()
 
 export class CasocovidService {
-    public getCasoscovid(): Promise<Casoscovid[]>{
-        let promise = new Promise((resolve, reject) => {
-            if(CASOS.length > 0){
-                resolve(CASOS);
-            }else{
-                let error_msg = "Não há registros";
-                reject(error_msg)
-            }
-        })
+    public casoscovidUrl = 'api/teste';
 
-        return promise;
+    public constructor(private http: Http){
+
+    }
+    public getCasoscovid(): Observable<Casoscovid[]>{
+        return this.http.get(this.casoscovidUrl)
+        .map((response: Response) => response.json().data as Casoscovid)
     }
 }

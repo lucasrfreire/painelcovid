@@ -9,6 +9,7 @@ import { CasocovidDetalhesComponent } from "./casoscovid/casocovid-detalhes/caso
 import { CasoscovidComponent } from "./casoscovid/casoscovid.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { NavbarComponent } from "./navbar/navbar.component";
+import { CasocovidService } from "./casoscovid/shared/casoscovid.service";
 
 const ROUTES = RouterModule.forRoot([
   {
@@ -40,7 +41,9 @@ const ROUTES = RouterModule.forRoot([
     HttpModule,
     ROUTES
   ],
-  providers: [],
+  providers: [
+    CasocovidService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
