@@ -17,6 +17,7 @@ const CASOS: Array<Casoscovid> = [
 
 export class CasoscovidComponent implements OnInit{
     public casoscovid;
+    public casoselecionado: Casoscovid;
 
     public constructor(){
 
@@ -24,5 +25,9 @@ export class CasoscovidComponent implements OnInit{
 
     public ngOnInit(){
         this.casoscovid = CASOS;
+    }
+
+    public onSelect(casocovid: Casoscovid): void {
+        this.casoselecionado = casocovid;
     }
 }
