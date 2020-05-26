@@ -13,7 +13,16 @@ const CASOS: Array<Casoscovid> = [
 @Injectable()
 
 export class CasocovidService {
-    public getCasoscovid(): Array<Casoscovid>{
-        return CASOS;
+    public getCasoscovid(): Promise<Casoscovid[]>{
+        let promise = new Promise((resolve, reject) => {
+            if(CASOS.length > 0){
+                resolve(CASOS);
+            }else{
+                let error_msg = "Não há registros";
+                reject(error_msg)
+            }
+        })
+
+        return promise;
     }
 }

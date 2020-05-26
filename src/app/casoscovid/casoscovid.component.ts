@@ -20,7 +20,10 @@ export class CasoscovidComponent implements OnInit{
     }
 
     public ngOnInit(){
-        this.casoscovid = this.casoscovidService.getCasoscovid();
+        this.casoscovidService.getCasoscovid()
+            .then((casoscovid) => this.casoscovid = casoscovid)
+            .catch((error_msg) => alert(error_msg));
+            
     }
 
     public onSelect(casocovid: Casoscovid): void {
