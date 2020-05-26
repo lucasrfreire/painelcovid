@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-const CASOS: Array<any> = [
+import { Casoscovid } from "./shared/casoscodiv.model";
+
+const CASOS: Array<Casoscovid> = [
     { uf: 'DF', cases: 80},
     { uf: 'GO', cases: 2},
     { uf: 'MG', cases: 25},
