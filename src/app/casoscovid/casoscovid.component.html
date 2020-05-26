@@ -1,0 +1,14 @@
+<table class="table">
+<thead>
+    <th>Estado</th>
+    <th>Número de Casos</th>
+    <th>Ações</th>
+</thead>
+<tbody>
+    <tr *ngFor="let casocovid of casoscovid">
+        <td>{{casocovid.uf}}</td>
+        <td>{{casocovid.cases}}</td>
+        <td><button class="btn btn-info">Detalhes</button></td>
+    </tr>
+</tbody>
+</table>
