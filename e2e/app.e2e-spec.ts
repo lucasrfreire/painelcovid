@@ -1,10 +1,10 @@
-import { TaskmanagerFrontendPage } from './app.po';
+import { PainelCovidPage } from './app.po';
 
-describe('taskmanager-frontend App', () => {
-  let page: TaskmanagerFrontendPage;
+describe('painel-covid App', () => {
+  let page: PainelCovidPage;
 
   beforeEach(() => {
-    page = new TaskmanagerFrontendPage();
+    page = new PainelCovidPage();
   });
 
   it('should display message saying app works', () => {

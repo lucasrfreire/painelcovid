@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class TaskmanagerFrontendPage {
+export class PainelCovidPage {
   navigateTo() {
     return browser.get('/');
   }
