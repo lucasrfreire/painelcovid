@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { CasocovidDetalhesComponent } from "./casoscovid/casocovid-detalhes/casocovid-datalhes.component";
@@ -13,9 +14,13 @@ import { CasocovidService } from "./casoscovid/shared/casoscovid.service";
 
 const ROUTES = RouterModule.forRoot([
   {
+    path: 'dashboard/:uf',
+    component: DashboardComponent
+  },
+  {
     path: 'casoscovid/:uf',
     component: CasocovidDetalhesComponent
-  }
+  },
   {
     path: 'dashboard',
     component: DashboardComponent
@@ -42,6 +47,7 @@ const ROUTES = RouterModule.forRoot([
   imports: [
     BrowserModule,
     FormsModule,
+    ChartsModule,
     HttpModule,
     ROUTES
   ],

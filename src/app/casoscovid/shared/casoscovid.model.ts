@@ -6,8 +6,8 @@ export class Casoscovid {
     public cases: number;
     public deaths: number;
     public suspects: number;
-    public refuses: number
-    //public datetime: Date
+    public refuses: number;
+    public datetime: string;
 
     constructor(
         uid: number,
@@ -16,7 +16,8 @@ export class Casoscovid {
         cases: number,
         deaths: number,
         suspects: number,
-        refuses: number
+        refuses: number,
+        datetime: string
     ){
         this.uid = uid;
         this.uf = uf;
@@ -25,5 +26,6 @@ export class Casoscovid {
         this.deaths = deaths;
         this.suspects = suspects;
         this.refuses = refuses;
+        this.datetime = datetime;
     }
 }

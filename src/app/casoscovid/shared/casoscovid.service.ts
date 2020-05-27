@@ -34,8 +34,26 @@ export class CasocovidService {
 
     public getCasosPorEstado(uf: string): Observable<Casoscovid>{
         let url = `${this.casoscovidUrl}/brazil/uf/${uf}`;
-        return this.http.get(this)
+        return this.http.get(url)
         .map((response: Response) => response.json().data as Casoscovid)
+    }
+
+
+    public getUltimaSemana(data: string): Observable<Casoscovid[]>{
+
+        console.log('Entrou na ultima semana!');
+        return this.http.get(`${this.casoscovidUrl}/brazil/${data}`)
+            .map((response: Response) => response.json().data as Casoscovid[]); 
+
+    }
+
+
+    public filterData(locationName, casosdaSemana): Observable<Casoscovid[]> {
+        console.log(casosdaSemana.json());
+        return casosdaSemana.filter(object => {
+            return object['uf'] == locationName;
+        });
     }
     
 }
+
