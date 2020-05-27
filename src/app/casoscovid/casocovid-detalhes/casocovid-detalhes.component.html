@@ -2,18 +2,18 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Detalhes</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Detalhes do estado {{casocovid.state}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-         <strong>Estado: </strong>{{casocovid.uf}}
-          <strong>Número de casos: </strong>{{casocovid.cases}}
+          <p><strong>Número de casos confirmados: </strong>{{casocovid.cases}}</p>
+          <p><strong>Númedo de casos suspeitos: </strong>{{casocovid.suspects}}</p>
+          <p><strong>Número de mortes: </strong>{{casocovid.deaths}}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>

@@ -6,8 +6,7 @@ import { CasocovidService } from "./shared/casoscovid.service";
 
 @Component({
     selector: 'casoscovid',
-    templateUrl: './casoscovid.component.html',
-    providers: [ CasocovidService ]
+    templateUrl: './casoscovid.component.html'
 })
 
 export class CasoscovidComponent implements OnInit{
@@ -20,9 +19,11 @@ export class CasoscovidComponent implements OnInit{
     }
 
     public ngOnInit(){
-        this.casoscovidService.getCasoscovid()
-            .then((casoscovid) => this.casoscovid = casoscovid)
-            .catch((error_msg) => alert(error_msg));
+        this.casoscovidService.getAll()
+        .subscribe(
+            casoscovid => this.casoscovid = casoscovid,
+            error => alert("Ocorreu um erro no servidor, tente novamente mais tarde")
+        )
             
     }
 

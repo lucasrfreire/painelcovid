@@ -1,18 +1,20 @@
 <table class="table">
 <thead>
     <th>Estado</th>
-    <th>Número de Casos</th>
-    <th>Ações</th>
+    <th>Casos Confirmados</th>
+    <th>Casos Suspeitos</th>
+    <th>Número de Mortes</th>
+    <!--<th>Ver Detalhes</th>-->
 </thead>
 <tbody>
     <tr *ngFor="let casocovid of casoscovid">
-        <td>{{casocovid.uf}}</td>
+        <td>{{casocovid.state}}</td>
         <td>{{casocovid.cases}}</td>
-        <td><button class="btn btn-info" data-toggle="modal" data-target="#detalharcasos" (click)="onSelect(casocovid)">
+        <td>{{casocovid.suspects}}</td>
+        <td>{{casocovid.deaths}}</td>
+        <!--<td><button class="btn btn-info" [routerLink]="['/casoscovid', casocovid.uf]">
             Detalhes
-        </button></td>
+        </button></td>-->
     </tr>
 </tbody>
 </table>
-
-<casocovid-detalhes [casocovid]="casoselecionado"></casocovid-detalhes>
