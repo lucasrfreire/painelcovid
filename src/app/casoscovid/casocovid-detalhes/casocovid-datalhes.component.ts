@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 
-import { Casoscovid } from "../shared/casoscodiv.model";
+import { Casoscovid } from "../shared/casoscovid.model";
 
 @Component({
     selector: 'casocovid-detalhes',

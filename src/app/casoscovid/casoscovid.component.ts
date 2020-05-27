@@ -1,30 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Casoscovid } from "./shared/casoscodiv.model";
+import { Casoscovid } from "./shared/casoscovid.model";
 
-const CASOS: Array<Casoscovid> = [
-    { uf: 'DF', cases: 80},
-    { uf: 'GO', cases: 2},
-    { uf: 'MG', cases: 25},
-    { uf: 'MT', cases: 38},
-    { uf: 'PA', cases: 19}
-];
+import { CasocovidService } from "./shared/casoscovid.service";
 
 @Component({
     selector: 'casoscovid',
-    templateUrl: './casoscovid.component.html'
+    templateUrl: './casoscovid.component.html',
+    providers: [ CasocovidService ]
 })
 
 export class CasoscovidComponent implements OnInit{
-    public casoscovid;
+    public casoscovid: Array<Casoscovid>;
     public casoselecionado: Casoscovid;
+    //private casoscovidService: CasocovidService;
 
-    public constructor(){
-
+    public constructor(private casoscovidService: CasocovidService){
+        
     }
 
     public ngOnInit(){
-        this.casoscovid = CASOS;
+        this.casoscovidService.getCasoscovid()
+            .then((casoscovid) => this.casoscovid = casoscovid)
+            .catch((error_msg) => alert(error_msg));
+            
     }
 
     public onSelect(casocovid: Casoscovid): void {
